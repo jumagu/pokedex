@@ -6,7 +6,7 @@ export class Pokemon extends Document {
   @Prop({ unique: true, index: true })
   idNumber: number;
 
-  @Prop({ unique: true, index: true })
+  @Prop({ unique: true, index: true, trim: true, lowercase: true })
   name: string;
 }
 
