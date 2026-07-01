@@ -1,7 +1,7 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import { Controller, Get, Post, Body, Patch, Param, Delete, Query } from '@nestjs/common';
 
 import { PokemonService } from './pokemon.service';
-import { CreatePokemonDto, UpdatePokemonDto } from './dto';
+import { CreatePokemonDto, FindAllPokemonsDto, UpdatePokemonDto } from './dto';
 
 @Controller('pokemons')
 export class PokemonController {
@@ -14,8 +14,8 @@ export class PokemonController {
   }
 
   @Get()
-  findAll() {
-    return this.pokemonService.findAll();
+  findAll(@Query() findAllPokemonsDto: FindAllPokemonsDto) {
+    return this.pokemonService.findAll(findAllPokemonsDto);
   }
 
   @Get(':term')

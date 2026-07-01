@@ -10,7 +10,7 @@ import { InjectModel } from '@nestjs/mongoose';
 import { isValidObjectId, Model } from 'mongoose';
 
 import { Pokemon } from './entities/pokemon.entity';
-import { CreatePokemonDto, UpdatePokemonDto } from './dto';
+import { CreatePokemonDto, FindAllPokemonsDto, UpdatePokemonDto } from './dto';
 
 @Injectable()
 export class PokemonService {
@@ -27,8 +27,12 @@ export class PokemonService {
     }
   }
 
-  findAll() {
-    return `This action returns all pokemon`;
+  async findAll(findAllPokemonsDto: FindAllPokemonsDto) {
+    const { limit = 10, offset = 0 } = findAllPokemonsDto;
+
+    const pokemons = await this.pokemonModel.find().limit(limit).skip(offset).sort({ idNumber: 1 }).select('-__v');
+
+    return pokemons;
   }
 
   async findOne(term: string) {

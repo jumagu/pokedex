@@ -12,6 +12,10 @@ async function bootstrap() {
     new ValidationPipe({
       whitelist: true, // strips fields not in the DTO
       forbidNonWhitelisted: true, // throws error if unknown fields are sent
+      transform: true, // auto-transforms types (e.g., string "1" → number 1)
+      transformOptions: {
+        enableImplicitConversion: true,
+      },
     }),
   );
 
