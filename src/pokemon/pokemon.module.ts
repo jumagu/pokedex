@@ -1,4 +1,5 @@
 import { Module } from '@nestjs/common';
+// import { ConfigModule } from '@nestjs/config';
 import { MongooseModule } from '@nestjs/mongoose';
 
 import { PokemonService } from './pokemon.service';
@@ -7,6 +8,7 @@ import { Pokemon, PokemonSchema } from './entities/pokemon.entity';
 
 @Module({
   imports: [
+    // ConfigModule, // ? Register this only if the ConfigModule has 'isGlobal: false' in app.module.ts
     MongooseModule.forFeature([
       {
         name: Pokemon.name,
