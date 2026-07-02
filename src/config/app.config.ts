@@ -7,7 +7,7 @@ import * as Joi from 'joi';
 export const validationSchema = Joi.object({
   MONGODB_URI: Joi.required(), //
   PORT: Joi.number().port().default(3001),
-  DEFAULT_LIMIT: Joi.number().default(6),
+  DEFAULT_LIMIT: Joi.number().default(10),
 });
 
 export const appConfig = () => ({
