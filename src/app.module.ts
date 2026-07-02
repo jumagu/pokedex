@@ -17,7 +17,7 @@ import { appConfig, validationSchema } from './config/app.config';
     ServeStaticModule.forRoot({
       rootPath: join(__dirname, '..', 'public'),
     }),
-    MongooseModule.forRoot(process.env.MONGODB_URI ?? ''),
+    MongooseModule.forRoot(process.env.MONGODB_URI ?? '', { dbName: 'pokedex-db' }),
     CommonModule,
     PokemonModule,
     SeedModule,
