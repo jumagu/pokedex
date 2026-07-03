@@ -1,7 +1,3 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
-</p>
-
 # Pokédex API
 
 A REST API for managing Pokémon, built with [NestJS](https://nestjs.com/) and MongoDB. Supports full CRUD, pagination, and lookup by Mongo ID, number, or name, plus a seed endpoint that populates the database from the public [PokeAPI](https://pokeapi.co/).
